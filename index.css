@@ -1,0 +1,144 @@
+<body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+    
+    <header>
+    ```
+
+## 🎨 II. CSS अपडेट्स (`style.css`)
+
+आपको अपनी पिछली `style.css` फ़ाइल में निम्नलिखित बदलाव करने होंगे। मैंने अनावश्यक कोड को हटा दिया है और केवल आवश्यक बदलावों पर ध्यान केंद्रित किया है।
+
+```css
+/* --- Homework 1 Styles (Kept) --- */
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    /* Step 4: nav element को inline-block और 80% width दें */
+    background-color: #343a40;
+    display: inline-block; 
+    width: 80%; /* Nav bar की चौड़ाई कम करें */
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    background-color: #ffffff;
+    font-size: 1.1em;
+    padding: 20px;
+    /* min-height को बनाए रखें या हटा दें यदि आवश्यकता न हो */
+    min-height: 500px; 
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    color: #28a745; 
+    padding-top: 10px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------- */
+/* --- Homework 2 Required Changes --- */
+/* ---------------------------------------------------------------- */
+
+/* Step 3: li element की मौजूदा स्टाइलिंग को Comment out करें */
+/*
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    width: 120px;
+}
+*/
+/* Note: यदि आप चाहते हैं कि nav लिंक्स दिखें, तो आपको li के ऊपर के ul पर कुछ बेसिक स्टाइलिंग रखनी होगी */
+
+/* Step 5: Descendent Selector - nav के अंदर की image को स्टाइल करें */
+nav img {
+    width: 10%; 
+    /* यदि आपने nav के अंदर कोई इमेज जोड़ी है, तो यह उसे स्टाइल करेगा */
+}
+
+/* Step 6 & 8: grid class को स्टाइल करना (Two-column grid) */
+.grid {
+    display: grid;
+    /* दो कॉलम, प्रत्येक लगभग 40% चौड़ाई का */
+    grid-template-columns: 40% 40%;
+    
+    /* Step 8: justify-content, align-items और row-gap */
+    justify-content: center; /* ग्रिड को केंद्र में लाएगा */
+    align-items: center;    /* सामग्री को वर्टिकली (vertically) केंद्र में लाएगा */
+    row-gap: 20px;          /* पंक्तियों के बीच गैप */
+    column-gap: 20px;       /* कॉलम्स के बीच गैप (वैकल्पिक, लेकिन अच्छा) */
+    margin: 20px 0;
+}
+
+
+/* Step 7: Descendent Selector - केवल grid class के अंदर की images */
+.grid img {
+    width: 100%; /* ग्रिड सेल की पूरी चौड़ाई लें */
+    height: auto;
+    display: block; /* बॉक्स मॉडल को व्यवस्थित करने के लिए */
+}
+
+/* Step 9: flex class को स्टाइल करना */
+.flex {
+    display: flex;
+    
+    /* Play with flex properties */
+    flex-wrap: wrap;       /* यदि सामग्री बहुत लंबी हो तो अगली लाइन में जाने दें */
+    justify-content: space-around; /* आइटम्स के बीच और किनारों पर स्पेस दें */
+    
+    padding: 10px;
+    background-color: #e9ecef; /* हल्का बैकग्राउंड */
+    margin: 20px 0;
+}
+
+
+/* Accessibility: Skip Link को केवल फोकस होने पर दिखाएं */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    /* Focus होने पर लिंक को दृश्यमान (visible) करें */
+    z-index: 999;
+}
+
+.skip-link:focus {
+    left: 0;
+    width: auto;
+    height: auto;
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
